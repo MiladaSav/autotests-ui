@@ -19,7 +19,7 @@ with sync_playwright() as playwright:
 
     #Проверит, что на странице "Dashboard" отображается заголовок "Dashboard"
     dashboard_title = page.locator('//div//h6[@data-testid="dashboard-toolbar-title-text"]')
-    #Проверим видимость title
+    #Проверит видимость title
     expect(dashboard_title).to_be_visible()
-    #Проверим соответствие текста "Dashboard"
+    #Проверит соответствие текста "Dashboard"
     expect(dashboard_title).to_have_text("Dashboard")
