@@ -16,7 +16,7 @@ with sync_playwright() as playwright:
     username_input.fill("username")
     #Заполнит поле "Password" значением "password"
     password_input = page.locator('//div[@data-testid="registration-form-password-input"]//div//input')
-    password_input.fill("Password")
+    password_input.fill("password")
 
     #Проверит, что кнопка Login активна
     expect(registration_button).not_to_be_disabled()
