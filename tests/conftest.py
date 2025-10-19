@@ -43,7 +43,7 @@ def initialize_browser_state(playwright: Playwright):
 def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
     '''
     Возвращает страницу браузера с уже авторизованным пользователем.
-    :param initialize_browser_state: Фикстура, предварительно создающая состояние браузера.
+    :param initialize_browser_state: Фикстура, предварительно создающая состояние браузера (куки и localStorage).
     :param playwright: Экземпляр Playwright для управления браузером.
     :return: Объект Page с загруженным состоянием сессии.
     '''
