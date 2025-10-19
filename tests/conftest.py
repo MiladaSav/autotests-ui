@@ -47,7 +47,6 @@ def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -
     :param playwright: Экземпляр Playwright для управления браузером.
     :return: Объект Page с загруженным состоянием сессии.
     '''
-
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state="browser-state.json") # Указываем файл с сохраненным состоянием
     page = context.new_page()
