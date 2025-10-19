@@ -37,12 +37,22 @@ def initialize_browser_state(playwright: Playwright):
     # Сохраняем состояние браузера (куки и localStorage) в файл для дальнейшего использования
     context.storage_state(path="browser-state.json")
 
+    browser.close()
 
 @pytest.fixture(scope="function")
 def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
+    '''
+    Возвращает страницу браузера с уже авторизованным пользователем.
+    :param initialize_browser_state: Фикстура, предварительно создающая состояние браузера.
+    :param playwright: Экземпляр Playwright для управления браузером.
+    :return: Объект Page с загруженным состоянием сессии.
+    '''
+
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context(storage_state="browser-state.json") # Указываем файл с сохраненным состоянием
     page = context.new_page()
 
     yield page
+
+    browser.close()
 
