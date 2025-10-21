@@ -14,7 +14,7 @@ class RegistrationPage(BasePage):
         self.registration_button = page.get_by_test_id('registration-page-registration-button')
         self.login_link = page.get_by_test_id('registration-page-login-link')
 
-    # Метод для заполнения формы авторизации
+    # Метод для заполнения формы регистрации
     def fill_registration_form(self, email: str, password: str, username: str):
         self.email_input.fill(email)
         expect(self.email_input).to_have_value(email)  # Проверяем, что email введен корректно
